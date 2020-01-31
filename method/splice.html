@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Javascript - splice</title>
+</head>
+<body>
+    <h1>Array.splice()</h1>
+    <script>
+        const months = ['Jan', 'March', 'April', 'June'];
+
+        /*
+        .splice(삽입할 순서, 제거할 요소, 추가할 항목)
+            삽입순서는 0부터 시작 ex) 0, 1, 2, 3, 4 ...
+            제거할 요소는 삽입 위치를 기준으로 지정한 수 만큼 제거
+            ex) 삽입할 순서가 1이고 제거할 요소가 3이면 Jan, March, April이 제거됨  
+        */
+        months.splice(1, 0, 'Feb'); // 1번 인덱스에 Feb 추가, 제거할 요소 없음
+        console.log('months : ', months);
+        // months : ["Jan", "Feb", "March", "April", "June"]
+
+        months.splice(4, 1, 'May'); // 4번 인덱스에 May 추가, June이 제거됨
+        console.log('months : ', months);
+        // months : ["Jan", "Feb", "March", "April", "May"]
+    </script>
+</body>
+</html>
+
