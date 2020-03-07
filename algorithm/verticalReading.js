@@ -1,16 +1,33 @@
-/*
-x는 가로열, y는 세로열이라고 할 때,
-각 줄의 글자 수는 최소 1개, 최대 15개
-주어지는 글자는 영어 대문자 ‘A’부터 ‘Z’, 영어 소문자 ‘a’부터 ‘z’, 숫자 ‘0’부터 ‘9’ 중 하나
-0 < x < 15  --➤  0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-y = 5  
-*/
+const run = str => {
+    let maxLength = 0;
+    str.forEach(item => maxLength = item.length > maxLength ? item.length : maxLength);
+    //var item = function(){maxLength = item.length > maxLength ? item.length : maxLength}
+    //maxLength = item.length > maxLength ? item.length : maxLength
+    //item.length가 0보다 크면 item.length : 그렇지 않으면 0, maxLength 변수에 재할당
+  
+    let result = '';
+    for (let i = 0; i < maxLength; i++) {
+      for (let j = 0; j < 5; j++) {
+        result += str[j].substring(i, i+1);
+      }
+    }
 
-var limit;
-var x = 0;
-var y = -1;
-
-limit < 15;
-for(var i = 0; i < limit; i++){
-    y = y + 1;
-}
+  
+    console.log('result', result);
+  };
+  
+  run(
+  [ 'ABCDE',
+    'abcde',
+    '01234',
+    'FGHIJ',
+    'fghij' ]
+  );
+  
+  run(
+  [ 'AABCDD',
+    'afzz',
+    '09121',
+    'a8EWg6',
+    'P5h3kx' ]
+  );
