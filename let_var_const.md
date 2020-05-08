@@ -39,11 +39,13 @@ for(var i = 0; i < 10; i++>) {
 console.log(i); //10
 ```
 
+const도 let처럼 block scope이다.
 
 ## Redeclaration(재선언)
 
-- let은 재선언 불가.
 - var는 재선언 가능.
+- let은 재선언 불가.
+- const는 재선언 불가.
 
 ### 변수 생성과정에서 발생하는 차이점
 

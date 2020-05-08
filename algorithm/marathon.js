@@ -17,3 +17,18 @@ function solution(participant, completion) { //참가자 수, 완주한 사람 �
         if(participant[i] !== completion[i]) return participant[i]; //참가자와 완주한 사람이 일치하지 않으면 그 값을 반환
     }
 }
+
+let part1 = ["leo", "kiki", "eden"]
+let compl1 = ["eden", "kiki"]
+
+let part2 = ["marina", "josipa", "nikola", "vinko", "filipa"]
+let compl2 = ["josipa", "filipa", "marina", "nikola"]
+
+let part3 = ["mislav", "stanko", "mislav", "ana"]
+let compl3 = ["stanko", "ana", "mislav"]
+
+console.log(solution(part1, compl1));
+
+console.log(solution(part2, compl2));
+
+console.log(solution(part3, compl3));
