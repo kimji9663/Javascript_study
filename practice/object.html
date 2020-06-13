@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Object</h1>
+
+    <h2>Create</h2>
+    <p>객체를 생성하는 방법</p>
+    <script>
+        var resource = {
+            "Ore" : "Iron Stone",
+            "Wood" : "Bridge"
+        }
+        document.write("Ore : " +resource.Ore+ "<br>");
+        document.write("Wood : " +resource.Wood+ "<br>");
+        resource.Monster = "Beast Spine";
+        document.write("Monster : " +resource.Monster+ "<br>");
+        resource["Camp resource"] = "Tungsten Lod";
+        document.write("Camp resource : " +resource["Camp resource"]+ "<br>");
+    </script>
+
+    <br>
+
+    <h2>Iterate</h2>
+    <p>객체를 순회하는 방법(순서를 보장하지 않는다.)</p>
+    <script>
+        for(var key in resource) {
+            document.write(key+ " : " +resource[key]+ "<br>");
+        }
+    </script>
+
+    <br>
+
+    <h2>Property & Method</h2>
+    <p>개체에 소속된 함수를 Method라고 한다.</p>
+    <p>개체에 소속된 변수를 Property라고 한다.</p>
+    <script>
+        resource.showAll = function(){
+            for(var key in resource) {
+                document.write(key+ " : " +resource[key]+ "<br>");
+            }
+        }
+        resource.showAll();
+    </script>
+</body>
+</html>
