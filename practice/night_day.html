@@ -7,20 +7,20 @@
 </head>
 <body>
     <h1>Night & Day</h1>
-    <input type="button" value="Night" onclick="
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';
-    ">
-    <input type="button" value="Day" onclick="
-        document.querySelector('body').style.backgroundColor = 'white';
-        document.querySelector('body').style.color = 'black';
-    ">
     <input id="night_day" type="button" value="Night" onclick="
         var target = document.querySelector('body');
         if(this.value === 'Night'){
             target.style.backgroundColor = 'black';
             target.style.color = 'white';
             this.value = 'Day';
+
+            //a color change
+            var alist = document.querySelectorAll('a');
+            var i = 0;
+            while(i < alist.length){
+                alist[i].style.color = 'powderblue';
+                i = i + 1;
+            }
         } else {
             target.style.backgroundColor = 'white';
             target.style.color = 'black';
@@ -34,5 +34,17 @@
     </ol>
     <h2>JavaScript</h2>
     <p>JavaScript (/ˈdʒɑːvəˌskrɪpt/[6]), often abbreviated as JS, is a high-level, dynamic, weakly typed, prototype-based, multi-paradigm, and interpreted programming language. Alongside HTML and CSS, JavaScript is one of the three core technologies of World Wide Web content production. It is used to make webpages interactive and provide online programs, including video games. The majority of websites employ it, and all modern web browsers support it without the need for plug-ins by means of a built-in JavaScript engine. Each of the many JavaScript engines represent a different implementation of JavaScript, all based on the ECMAScript specification, with some engines not supporting the spec fully, and with many engines supporting additional features beyond ECMA.</p>
+    <input id="night_day2" type="button" value="Night" onclick="
+        var target = document.querySelector('body');
+        if(this.value === 'Night'){
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
+            this.value = 'Day';
+        } else {
+            target.style.backgroundColor = 'white';
+            target.style.color = 'black';
+            this.value = 'Night';
+        }
+    ">
 </body>
 </html>
