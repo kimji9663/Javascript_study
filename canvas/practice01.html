@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Practice 01</title>
+    <style>
+        .name {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px; 
+            height:50px; 
+            background-color: #000; 
+            color: #fff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Canvas Practice 01</h1>
+    <div class="name">Pizza</div>
+    <canvas class="canvas" width="500" height="500" style="border: 1px solid #d6d6d6;">이 브라우저는 캔버스를 지원하지 않습니다.</canvas>
+
+    <script>
+        const canvas = document.querySelector('.canvas');
+        const context = canvas.getContext('2d');
+        function arcLength(angle){
+            return angle * Math.PI / 180;
+        }
+
+        function draw() {
+            // 피자조각
+            context.strokeStyle = '#000';
+            context.fillStyle = '#ffc107';
+            context.beginPath();
+            context.arc(150, 150, 300, 0, arcLength(70), false);
+            context.lineTo(50, 80);
+            context.closePath();
+            context.fill();
+            context.stroke();
+
+            context.beginPath();
+            context.arc(144, 147, 260, 0, arcLength(70), false);
+            context.stroke();
+
+            // 토핑1
+            context.strokeStyle = '#000';
+            context.fillStyle = '#e28585';
+            context.beginPath();
+            context.arc(170, 160, 35, 0, arcLength(360), false);
+            context.stroke();
+            context.fill();
+
+            // 토핑2
+            context.strokeStyle = '#000';
+            context.fillStyle = '#e28585';
+            context.beginPath();
+            context.arc(250, 290, 34, 0, arcLength(360), false);
+            context.stroke();
+            context.fill();
+            
+            // 토핑3
+            context.strokeStyle = '#000';
+            context.fillStyle = '#e28585';
+            context.beginPath();
+            context.arc(290, 190, 43, 0, arcLength(360), false);
+            context.stroke();
+            context.fill();
+        }
+        draw();
+    </script>
+</body>
+</html>
