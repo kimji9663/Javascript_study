@@ -87,8 +87,13 @@ const user = [
 
 
 
-// 4.10보다 큰 요소가 몇개 인지 구하기
+// 4. 10보다 큰 요소가 몇개 인지 구하기
 const arr = [1, 2, 3, 5, 10, 20, 30, 40, 50, 60];
+
+const result4 = arr.filter(item => item > 10);
+
+console.log(result4);
+
 
 
 
