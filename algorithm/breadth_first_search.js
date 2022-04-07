@@ -1,4 +1,4 @@
-// DFS (Depth First Search)
+// BFS (Breadth First Search)
 const graph = {'E': ['D', 'A'],
                'F': ['D'],
                'A': ['E', 'C', 'B'],
@@ -7,22 +7,20 @@ const graph = {'E': ['D', 'A'],
                'D': ['E','F']
               }
 
-function dfs(data, start) {
+function bfs(data, start) {
     let visited = [];
-    let stack = [start];
-
-    while (stack.length !== 0){
-        let n = stack.pop();
-        //console.log(graph[n]);
-        if (!visited.includes(n)){
+    let queue = [start];
+    while (queue.length !== 0){
+        let n = queue.shift(); // 배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환
+        if (!visited.includes(n)) {
             visited.push(n);
             let sub = graph[n].filter(x => !visited.includes(x));
             for (let i of sub){
-                stack.push(i);
+                queue.push(i);
             }
         }
     }
     return visited;
 }
 
-console.log(dfs(graph, 'E')); // [ 'E', 'A', 'B', 'C', 'D', 'F' ]
+bfs(graph, 'E');
