@@ -52,3 +52,6 @@ numbers4.reduce((acc, cur) => {
     return result4_3.push(cur);
 }, result4_3);
 console.log(result4_3);
+
+
+
