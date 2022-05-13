@@ -9,7 +9,7 @@
 주어진 숫자 K : 3
 */
 
-const n = 8;
+const n = 6;
 const k = 3;
 function sol(n, k){
   let index = 0;
@@ -18,15 +18,17 @@ function sol(n, k){
     food.push(i+1);
     //console.log(food);
   }
+
+  // 먹을 순서 1 - 4 - 2 - 6
   while(food.length > 2){ // 6, 5, 4, 3, 2끝 (2는 남길 음식 수)
     if(index > food.length-1){ // (0 < 6-1), (2 < 5-1), (4 > 4-1) / (2 = 3-1)
       console.log(index, food.length);
       index -= food.length; // 4 - 4
     } 
-  	food.splice(index, 1); // (0, 1), (2, 1), (4, 1) / (0, 1), (2, 1),
+  	food.splice(index, 1); // 현재 index에서 하나 빼기 (0, 1), (2, 1), (4, 1) / (0, 1), (2, 1),
     // food = [1, 2, 3, 4, 5, 6], [2, 3, 4, 5, 6], [2, 3, 5, 6], [3, 5, 6], [3, 5],
-    index += k; // 0 + 3, 2 + 3 / 0 + 3, 2 + 3,
-  	index --; // 3 - 1, 5 - 1 / 3 - 1, 5 - 1
+    index += k; // k만큼 건너뛰기 0 + 3, 2 + 3 / 0 + 3, 2 + 3,
+  	index -= 1; // 원래 순서보다 1 더 갔으니 -1 해줌 3 - 1, 5 - 1 / 3 - 1, 5 - 1
   }
   return food; // [3, 5]
 }
