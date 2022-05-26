@@ -22,12 +22,13 @@
                 return false;
             } else {
                 let t = m[s[i]];
-                if(t != stack.pop()){ // stack의 가장 끝에 있는 문자와 현재 순회하는 문자가 같은 지 확인
+                if(t != stack.pop()){ // stack의 가장 끝에 있는 문자를 꺼내고 현재 순회하는 문자가 같은 지 확인
                     return false
                 }
             }
         }
     }
+    console.log(stack);
     return stack.length === 0;
  }
  
