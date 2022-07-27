@@ -54,8 +54,7 @@ function f(n) {
   k++;
   result3 += String(k) + count3_2;
   console.log(result3);
+  
   return result3;
-  	
-  return result4;
 }
 console.log('result : ' + f(n));
