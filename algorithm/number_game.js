@@ -18,43 +18,37 @@
 122131
  */
 
-const n = 6;
 
-// 우선 직관적코드로 결과를 도출해보자.
-function f(n) {
+function solution(n) {
   // 1
-  let k = '1';
+  let answer = '1';
   let result = '';
 
-  // 1이 1개
-  result += k;
-  let count1 = result.match(/1/g).filter(function(item){
-    return item != '';
-  }).length;
-  let result1 = result += count1;
-  console.log(result1);
-  
-  // 1이 2개
-  let count2 = result1.match(/1/g).filter(function(item){
-    return item != '';
-  }).length;
-  let result2 = '';
-  result2 += k + count2;
-  console.log(result2);
-  
-  // 1이 1개, 2가 1개
-  let count3_1 = result2.match(/1/g).filter(function(item){
-    return item != '';
-  }).length;
-  let count3_2 = result2.match(/2/g).filter(function(item){
-    return item != '';
-  }).length;
-  let result3 = '';
-  result3 += k + count3_1;
-  k++;
-  result3 += String(k) + count3_2;
-  console.log(result3);
-  
-  return result3;
+  if(n === 1) {
+    return 1;
+  }
+  for (let i = 1; i < n; i++){
+    answer = rule(answer);
+  }
+  return answer;
 }
-console.log('result : ' + f(n));
+
+function rule(answer) {
+  //let answerMax = Math.max(...answer); // 만약 19라면 [12345678910111213141516171819] 그래서 가장 큰 수는 어차피 9 밖에 안나옴
+  let answerMax = 9; // 계산할 필요가 엄슴
+  let result = '';
+
+  for (let i = 1; i < answerMax; i++){
+    let re = new RegExp(i, 'g'); // 정규 표현식 정의
+    let count = (answer.match(re) || []).length; //str.match(regexp)는 배열을 반환한다. 값이 없을 경우 빈 배열을 count에 담는다.
+
+    // count는 배열이다.
+    if(count >= 1) {
+      result = result + String(i) + String(count); // 이전 값(없으면 빈 값) + 주체 + 주체의 개수
+    }
+  }
+  return result;
+}
+
+const user_input = 6;
+console.log(solution(user_input));
