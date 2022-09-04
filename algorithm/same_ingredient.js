@@ -24,42 +24,26 @@ for (let i = 65; i < 91; i++){
     l.push(String.fromCharCode(i));
 }
 
+// 100개의 데이터 만들기
 function randomItem(a){
     let string = [];
 
-    while(string.length != 8){ 
-        let b = a[Math.floor(Math.random()*a.length)];
+    while(string.length !=8){
+        let b = Math.floor(Math.random() * a.length); // 0 ~ 25
+        //console.log(b);
+        
         if(!string.includes(b)){
-            string.push(b);
+          string.push(b);
         }
     }
-
-    let medicine = string.join('');
-    return medicine;
+    console.log(string); //[ 2, 14, 9, 3, 5, 7, 12, 17 ]
 }
 
-let total_medicine = [];
+randomItem(l);
 
-while(total_medicine.length != 100){ 
-    let m = randomItem(l);
-    if(!total_medicine.includes(m)){
-        total_medicine.push(m);
-    }
-}
 
-console.log(total_medicine);
-let user_input = 'ABCDEFGH 4'.split(' ');
-let result = [];
+// 교집합 추출
 
-for (let i of total_medicine){
-    let setUserData = new Set(user_input[0]);
-    let setMedicine = new Set(i);
 
-    let intersection = new Set([...setUserData].filter(x => setMedicine.has(x)));
+// 교집합이 4개인 것 골라내기
 
-    if(intersection.size === parseInt(user_input[1], 10)){
-        result.push(i)
-    }
-}
-
-console.log(result);
