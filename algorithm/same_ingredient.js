@@ -23,27 +23,52 @@ let l = [];
 for (let i = 65; i < 91; i++){
     l.push(String.fromCharCode(i));
 }
+//console.log(l.length); // 26
 
-// 100개의 데이터 만들기
+// 8자리 알파벳 배열 랜덤으로 생성
 function randomItem(a){
     let string = [];
 
     while(string.length !=8){
-        let b = Math.floor(Math.random() * a.length); // 0 ~ 25
+        let b = a[Math.floor(Math.random() * a.length)]; // A ~ Z
         //console.log(b);
         
         if(!string.includes(b)){
           string.push(b);
         }
     }
-    console.log(string); //[ 2, 14, 9, 3, 5, 7, 12, 17 ]
+    let medicine = string.join('');
+    console.log(string); // [  'T', 'D', 'P', 'J', 'I', 'K',  'R', 'F' ]
+    //console.log(medicine); // 'TDPJIKRF'
+    return medicine;
 }
-
 randomItem(l);
 
+// 100개의 데이터 만들기
+let total_medicine = [];
+while(total_medicine.length !== 100){
+  let m = randomItem(l);
+  if (!total_medicine.includes(m)){ // 중복 방지
+    total_medicine.push(m);
+  }
+}
 
 // 교집합 추출
+let user_input = 'ABCDEFGH 4'.split(' ');
+let result = [];
 
+for (let i of total_medicine){
+  let setUserData = new Set(user_input[0]); // Set { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' }
+  let setMedicine = new Set(i); // Set { 'Y', 'T', 'S', 'E', 'H', 'J', 'C', 'A' }
+  
+  let intersection = new Set([...setUserData].filter(x => setMedicine.has(x))); // has는 Set의 매서드
+  
+  // 교집합이 4개인 것 골라내기
+  if(intersection.size === parseInt(user_input[1], 10)){
+    result.push(i)
+  }
+}
 
-// 교집합이 4개인 것 골라내기
+console.log(result); 
+// [ 'LHZIVDCB', 'ZHFMRGDY', 'HBEIFZSJ', 'BMAXENDI', 'CBUPREHT', 'EDSCUIBQ', 'ZRFVAJBC', 'EXKRHPGC', 'AKVBHTPF', 'NEHZGFSJ', 'CDSBHNVU' ] 
 
